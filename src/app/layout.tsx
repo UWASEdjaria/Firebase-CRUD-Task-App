@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-white min-h-screen font-sans">
+      <body className="flex flex-col  bg-white min-h-screen font-sans">
           <header className="bg-white shadow-lg p-4 flex justify-end gap-4">
 
              <Link
