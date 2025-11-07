@@ -1,3 +1,4 @@
+'user client'
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
@@ -25,7 +26,12 @@ export default function RootLayout({
              href='/register'
               className="border-2 border-orange-500 text-orange-500 px-4 py-2 rounded-lg transition hover:bg-orange-50">register
               </Link>
-        </header>
+             <Link
+              href='/logout'
+              className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-lg p-2 mt-2">
+              logout
+             </Link>
+           </header>
          <main className="p-6">{children}</main>
       </body>
     </html>

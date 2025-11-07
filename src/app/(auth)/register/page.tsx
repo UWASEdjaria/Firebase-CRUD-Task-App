@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function Register() {
@@ -42,9 +43,9 @@ export default function Register() {
 
       <p className="text-center text-gray-600 mt-4">
         Already have an account?{" "}
-        <a href="/login" className="text-orange-500 hover:underline">
+        <Link href="/login" className="text-orange-500 hover:underline">
           Login
-        </a>
+        </Link>
       </p>
     </div>
   );
