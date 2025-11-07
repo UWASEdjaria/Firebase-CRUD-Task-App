@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📘 Project Title
 
-## Getting Started
+Firebase CRUD Task App (Next.js + TypeScript + Firebase)
 
-First, run the development server:
+# 🧩 1. Project Setup Steps
+🔹 Step 1: Create a new Next.js project
 
-```bash
+Open your terminal and run:
+
+npx create-next-app@latest firebase-crud-task-app
+
+
+When asked:
+
+✅ TypeScript: Yes
+
+✅ ESLint: Yes
+
+✅ Tailwind CSS: Yes
+
+✅ App Router: Yes
+
+✅ Src Directory: Yes
+
+✅ Import alias (@/): Yes
+
+Then:
+
+cd firebase-crud-task-app
+
+🔹 Step 2: Install Firebase
+npm install firebase
+
+🔹 Step 3: Start your dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Then open your browser at
+👉 http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# 📁 2. Create Folder Structure
 
-## Learn More
+Inside src/app, create the folders like this:
 
-To learn more about Next.js, take a look at the following resources:
+src/
+└── app/
+    ├── (auth)/
+    │   ├── login/
+    │   │   └── page.tsx
+    │   ├── logout/
+    │   │   └── page.tsx
+    │   └── register/
+    │       └── page.tsx
+    │
+    ├── api/
+    │   └── tasks/
+    │       ├── route.ts
+    │       └── [id]/
+    │           └── route.ts
+    │
+    ├── lib/
+    │   └── firebase.ts
+    │
+    ├── globals.css
+    ├── layout.tsx
+    └── page.tsx
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# To create them manually in VS Code:
 
-## Deploy on Vercel
+Right-click on the app folder → New Folder
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Name it (auth)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Inside (auth), create login, logout, and register folders
+
+Add a file named page.tsx inside each one
+
+Repeat the same for api/tasks and lib
+
+# 📝 3. Project Description
+
+A Firebase CRUD Task App built with Next.js 13, TypeScript, and Tailwind CSS.
+It allows users to:
+
+Register and log in with Firebase Authentication
+
+Create, read, update, and delete tasks in Firestore
+
+View their own personalized dashboard with a greeting
+
+Log out safely from any page
