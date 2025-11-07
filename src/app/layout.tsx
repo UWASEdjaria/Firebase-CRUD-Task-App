@@ -14,11 +14,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <Link href='/login'>login</Link>
-        <Link href='/register'>register</Link>
+      <body className="bg-white min-h-screen font-sans">
+          <header className="bg-white shadow-lg p-4 flex justify-end gap-4">
 
-        {children}
+             <Link
+              href='/login'
+              className="border-2 border-orange-500 text-orange-500 px-4 py-2 rounded-lg transition hover:bg-orange-50">login
+             </Link>
+             <Link 
+             href='/register'
+              className="border-2 border-orange-500 text-orange-500 px-4 py-2 rounded-lg transition hover:bg-orange-50">register
+              </Link>
+        </header>
+         <main className="p-6">{children}</main>
       </body>
     </html>
   );
