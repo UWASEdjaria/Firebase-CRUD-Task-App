@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 interface Login { 
     id: string; 
@@ -9,13 +10,13 @@ interface Login {
 export default function Login() {
   return (
     <div className='bg-white flex flex-col min-h-screen justify-center items-center p-2'>
-        <h1 className="text-2xl sm:text-2xl md:text-3xl lg-text-4xl font-bold text-orange-500 mb-2">Login Page</h1>
+        <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-orange-500 mb-2">Login Page</h1>
         <form className='flex flex-col  bg-gray-200 w-80 sm:w-60 h-80 p-4 m-4 rounded-lg gap-4'>
             <input
-           type='Email'
+           type='email'
            placeholder='UserEmail...'
            required
-           className='text-gray-600  text-center bg-orange-300 rounded-lg w-full p-5'/>
+           className='text-gray-600  text-center bg-orange-300 rounded-lg w-full py-3 px-2'/>
 
            <input
            type='password'
@@ -24,9 +25,14 @@ export default function Login() {
            className='text-gray-600  text-center  bg-orange-300 rounded-lg w-full p-5 '/>
            
            <button
-           className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-lg p-2" 
+           className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-lg p-2 cursor-pointer" 
            type="submit">Submit
            </button>
+          
+        <div className="text-center text-gray-600 mt-2">
+          <p>Don’t have an account?</p>
+          <Link href='/register' className="text-orange-500 hover:underline cursor-pointer">Register</Link>
+        </div>
 
            
         </form>
