@@ -45,11 +45,9 @@ export default function Register() {
       <form
           onSubmit={handleRegister}
           className="flex flex-col gap-4 p-6 bg-gray-200 rounded-lg w-72 sm:w-80 sm:p-3">
-        {error && (
-          <div className="p-2 mb-2 text-sm text-center text-red-600 bg-red-100 rounded">
-            {error}
-          </div>
-        )}
+          {error ? <p className="text-red-600">{error}</p> : null}
+
+        
         <input
           type="email"
           placeholder="Email..."
