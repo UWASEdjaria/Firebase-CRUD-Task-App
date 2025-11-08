@@ -15,20 +15,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex flex-col  bg-white min-h-screen font-sans">
-          <header className="bg-white shadow-lg p-4 flex justify-end gap-4">
+      <body className="flex flex-col min-h-screen font-sans bg-white">
+          <header className="flex justify-end gap-4 p-4 bg-white shadow-lg">
 
              <Link
               href='/login'
-              className="border-2 border-orange-500 text-orange-500 px-4 py-2 rounded-lg transition hover:bg-orange-50">login
+              className="px-4 py-2 text-orange-500 transition border-2 border-orange-500 rounded-lg hover:bg-orange-50">login
              </Link>
              <Link 
              href='/register'
-              className="border-2 border-orange-500 text-orange-500 px-4 py-2 rounded-lg transition hover:bg-orange-50">register
+              className="px-4 py-2 text-orange-500 transition border-2 border-orange-500 rounded-lg hover:bg-orange-50">register
               </Link>
              <Link
               href='/logout'
-              className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-lg p-2 mt-2">
+              
+              className="p-2 mt-2 text-white bg-orange-500 rounded-lg btn hover:bg-orange-600">
               logout
              </Link>
            </header>

@@ -1,12 +1,22 @@
-'user client'
+'use client'
+import { app } from '@/app/lib/firebase';
+import { getAuth, signOut } from 'firebase/auth';
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
-function logout() {
+export default function Logout() {
+  const router =useRouter();
+  const auth =getAuth(app);
+
+  async function handleLogout(){
+    await signOut(auth)
+    router.push('/login')
+  }
   return (
     <div>
        <button
-          
-          className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-lg p-2 mt-2"
+          onClick={handleLogout}
+          className="p-2 mt-2 text-white bg-orange-500 rounded-lg btn hover:bg-orange-600"
         >
           logout
         </button>
@@ -15,4 +25,4 @@ function logout() {
   )
 }
 
-export default logout
+
