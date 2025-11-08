@@ -20,7 +20,7 @@ export default function Login() {
     event.preventDefault();
     try {
       await signInWithEmailAndPassword(auth,email,password)
-      router.push("/dashboard")
+      router.push("/")
     } catch (error) {
       alert(error)
     }
