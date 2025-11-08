@@ -20,6 +20,13 @@ export default function Register() {
        setError("")
        if(ConfirmPassword!== password){
         setError('Passwords do not match')
+        return;
+        
+        if (password.length < 6) {
+        setError("Password must be at least 6 characters long");
+  return;
+}
+
        }
     try {
        await createUserWithEmailAndPassword(auth,email,password)
@@ -38,7 +45,11 @@ export default function Register() {
       <form
           onSubmit={handleRegister}
           className="flex flex-col gap-4 p-6 bg-gray-200 rounded-lg w-72 sm:w-80 sm:p-3">
-       
+        {error && (
+          <div className="p-2 mb-2 text-sm text-center text-red-600 bg-red-100 rounded">
+            {error}
+          </div>
+        )}
         <input
           type="email"
           placeholder="Email..."
