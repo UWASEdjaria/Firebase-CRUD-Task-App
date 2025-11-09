@@ -1,57 +1,34 @@
+import { NextResponse } from "next/server";
 import { db } from "@/app/lib/firebase";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
-import { NextRequest, NextResponse } from "next/server";
 
-export async function PUT(request: Request) {
+// Update a task
+export async function PUT(req: Request, { params }: { params: { id: string } }) {
   try {
-    const { id, ...data } = await request.json();
-    
-    if (!id) {
-      return NextResponse.json(
-        { error: "Task ID is required" },
-        { status: 400 }
-      );
-    }
+    const id = params.id;
+    const data = await req.json(); // JSON body from Postman
 
-    const docRef = doc(db, "items", id);
-    await updateDoc(docRef, data);
-    
-    return NextResponse.json({ 
-      id, 
-      ...data,
-      message: "Task updated successfully" 
-    });
-  } catch (error) {
-    console.error("PUT Error:", error);
-    return NextResponse.json(
-      { error: "Failed to update task" }, 
-      { status: 500 }
-    );
+    const taskRef = doc(db, "tasks", id);
+    await updateDoc(taskRef, data);
+
+    return NextResponse.json({ id, ...data, message: "Task updated!" });
+  } catch (err) {
+    console.error("PUT Error:", err);
+    return NextResponse.json({ error: "Failed to update task" }, { status: 500 });
   }
 }
 
-export async function DELETE(request: Request) {
+// Delete a task
+export async function DELETE(req: Request, { params }: { params: { id: string } }) {
   try {
-    const { id } = await request.json();
-    
-    if (!id) {
-      return NextResponse.json(
-        { error: "Task ID is required" },
-        { status: 400 }
-      );
-    }
+    const id = params.id;
 
-    await deleteDoc(doc(db, "items", id));
-    
-    return NextResponse.json({ 
-      message: "Task deleted successfully",
-      id
-    });
-  } catch (error) {
-    console.error("DELETE Error:", error);
-    return NextResponse.json(
-      { error: "Failed to delete task" }, 
-      { status: 500 }
-    );
+    const taskRef = doc(db, "tasks", id);
+    await deleteDoc(taskRef);
+
+    return NextResponse.json({ id, message: "Task deleted!" });
+  } catch (err) {
+    console.error("DELETE Error:", err);
+    return NextResponse.json({ error: "Failed to delete task" }, { status: 500 });
   }
 }
