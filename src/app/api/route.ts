@@ -1,21 +1,28 @@
-'use client'
-import { getAuth } from 'firebase/auth';
-import { app, db } from '../lib/firebase';
-import { addDoc, collection } from 'firebase/firestore';
-interface addItem {
-   id: string; 
-   title: string; 
-   description: string; 
-   completed: boolean; 
-   priority: "Low" | "Medium" | "High"; 
-   userEmail: string; }
+import { NextRequest, NextResponse } from "next/server";
+import { addDoc, collection, getDocs } from "firebase/firestore";
+import { db } from "../lib/firebase";
 
- async function addItem(data){
-  const auth=getAuth(app);
+
+const col = collection(db, "items"); // reference ya collection
+
+// CREATE - POST
+export async function POST(req: NextRequest) {
   try {
-    await addDoc(collection(db,"items"),data)
-    console.log("Item added successfully!")
+    const data = await req.json();
+    await addDoc(col, data);
+    return NextResponse.json({ message: "Item added successfully!" });
   } catch (error) {
-     console.log("Error adding item:", error);
+    return NextResponse.json({ error: "Failed to add item", details: error });
   }
- }export default addItem
+}
+
+// READ - GET
+export async function GET() {
+  try {
+    const snapshot = await getDocs(col);
+    const items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    return NextResponse.json(items);
+  } catch (error) {
+    return NextResponse.json({ error: "Failed to fetch items", details: error });
+  }
+}
