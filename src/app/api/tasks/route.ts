@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    const snapshot = await getDocs(collection(db, "items"));
+    const snapshot = await getDocs(collection(db, "tasks"));
     const tasks = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     return NextResponse.json(tasks);
   } catch (error) {
@@ -19,7 +19,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    const docRef = await addDoc(collection(db, "items"), data);
+    const docRef = await addDoc(collection(db, "tasks"), data);
     return NextResponse.json({ 
       id: docRef.id, 
       ...data 
