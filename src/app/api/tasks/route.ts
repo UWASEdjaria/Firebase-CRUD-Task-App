@@ -19,7 +19,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    const docRef = await addDoc(collection(db, "tasks"), data);
+    const docRef = await addDoc(collection(db, "task"), data);
     return NextResponse.json({ 
       id: docRef.id, 
       ...data 
