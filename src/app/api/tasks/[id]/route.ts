@@ -1,34 +1,25 @@
-import { NextResponse } from "next/server";
-import { db } from "@/app/lib/firebase";
+import { NextRequest, NextResponse } from "next/server";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { db } from "@/app/lib/firebase";
 
-// Update a task
-export async function PUT(req: Request, { params }: { params: { id: string } }) {
-  const id = params?.id;
-  if (!id) return NextResponse.json({ error: "ID is required" }, { status: 400 });
-
+// Update task
+export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
   try {
+    const id = params.id;
     const data = await req.json();
-    const taskRef = doc(db, "tasks", id);
-    await updateDoc(taskRef, data);
+    await updateDoc(doc(db, "tasks", id), data);
     return NextResponse.json({ id, ...data, message: "Task updated!" });
-  } catch (err) {
-    console.error(err);
+  } catch {
     return NextResponse.json({ error: "Failed to update task" }, { status: 500 });
   }
 }
 
-// Delete a task
-export async function DELETE(req: Request, { params }: { params: { id: string } }) {
-  const id = params?.id;
-  if (!id) return NextResponse.json({ error: "ID is required" }, { status: 400 });
-
+// Delete task
+export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    const taskRef = doc(db, "tasks", id);
-    await deleteDoc(taskRef);
-    return NextResponse.json({ id, message: "Task deleted!" });
-  } catch (err) {
-    console.error(err);
+    await deleteDoc(doc(db, "tasks", params.id));
+    return NextResponse.json({ id: params.id, message: "Task deleted!" });
+  } catch {
     return NextResponse.json({ error: "Failed to delete task" }, { status: 500 });
   }
 }

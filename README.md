@@ -1,8 +1,10 @@
-# 📘 Project Title
+📘 Firebase CRUD Task App
 
-Firebase CRUD Task App (Next.js + TypeScript + Firebase)
+Next.js + TypeScript + Firebase + Tailwind CSS
 
-# 🧩 1. Project Setup Steps
+A protected CRUD application that allows users to register, log in, and manage tasks (create, read, update, delete) securely using Firebase Authentication and Firestore. Each user can view and manage only their own tasks, with a personalized dashboard greeting.
+
+🧩 1. Project Setup Steps
 🔹 Step 1: Create a new Next.js project
 
 Open your terminal and run:
@@ -10,7 +12,7 @@ Open your terminal and run:
 npx create-next-app@latest firebase-crud-task-app
 
 
-When asked:
+When prompted, select:
 
 ✅ TypeScript: Yes
 
@@ -24,23 +26,23 @@ When asked:
 
 ✅ Import alias (@/): Yes
 
-Then:
+Then navigate into the project folder:
 
 cd firebase-crud-task-app
 
 🔹 Step 2: Install Firebase
 npm install firebase
 
-🔹 Step 3: Start your dev server
+🔹 Step 3: Start the development server
 npm run dev
 
 
-Then open your browser at
+Open your browser at:
 👉 http://localhost:3000
 
-# 📁 2. Create Folder Structure
+📁 2. Folder Structure
 
-Inside src/app, create the folders like this:
+Inside src/app, create the following structure:
 
 src/
 └── app/
@@ -65,28 +67,34 @@ src/
     ├── layout.tsx
     └── page.tsx
 
+💡 Tip: Create folders in VS Code
 
-# To create them manually in VS Code:
+Right-click on the app folder → New Folder → name it (auth)
 
-Right-click on the app folder → New Folder
+Inside (auth), create folders: login, logout, register
 
-Name it (auth)
+Add page.tsx inside each folder
 
-Inside (auth), create login, logout, and register folders
+Repeat for api/tasks and lib
 
-Add a file named page.tsx inside each one
+📝 3. Project Description
 
-Repeat the same for api/tasks and lib
+Firebase CRUD Task App is a full-stack frontend project built with Next.js 13, TypeScript, and Tailwind CSS.
 
-# 📝 3. Project Description
+Features:
 
-A Firebase CRUD Task App built with Next.js 13, TypeScript, and Tailwind CSS.
-It allows users to:
+✅ User registration and login via Firebase Authentication
 
-Register and log in with Firebase Authentication
+✅ Protected routes (only logged-in users can access the dashboard)
 
-Create, read, update, and delete tasks in Firestore
+✅ Create, read, update, and delete tasks stored in Firestore
 
-View their own personalized dashboard with a greeting
+✅ Personalized dashboard greeting for each user
 
-Log out safely from any page
+✅ Safe logout from any page
+
+This app demonstrates integration of authentication, database CRUD operations, and route protection using modern frontend practices.
+
+👤 Author
+
+Uwase Djaria – Frontend Developer

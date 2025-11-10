@@ -100,7 +100,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-white justify-centerlg:flex-row lg:flex-row">
+    <div className="flex flex-col items-center min-h-screen mt-5 bg-white justify-centerlg:flex-row ">
       <h1 className="mb-2 text-2xl font-bold text-orange-500 sm:text-3xl md:text-4xl">
         Hello, {user?.email}
       </h1>
