@@ -16,7 +16,7 @@ type TaskType = {
   title: string;
   description: string;
   priority: "Low" | "Medium" | "High";
-  completed: boolean;
+  completed: boolean
   userEmail?: string | null;
 };
 
