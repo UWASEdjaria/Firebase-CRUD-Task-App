@@ -1,100 +1,104 @@
-📘 Firebase CRUD Task App
+# 🧩 Firebase CRUD Task App
 
-Next.js + TypeScript + Firebase + Tailwind CSS
+## 🌟 Introduction
+This is a **Task Management App** built with **Next.js, TypeScript, and Firebase**.  
+It allows users to **register, log in, and manage tasks** — adding, editing, deleting, and marking them as complete.  
+Each user only sees **their own tasks**.
 
-A protected CRUD application that allows users to register, log in, and manage tasks (create, read, update, delete) securely using Firebase Authentication and Firestore. Each user can view and manage only their own tasks, with a personalized dashboard greeting.
+---
 
-🧩 1. Project Setup Steps
-🔹 Step 1: Create a new Next.js project
+## 🚀 What You Can Do
+- Register and log in with Firebase Authentication  
+- Add, edit, and delete tasks  
+- Mark tasks as complete or incomplete  
+- View only your own tasks  
+- Log out safely  
 
-Open your terminal and run:
+---
 
-npx create-next-app@latest firebase-crud-task-app
+## 🧠 Learning Goals
+You will learn how to:
+- Connect Firebase Authentication and Firestore to Next.js  
+- Manage protected routes  
+- Perform CRUD (Create, Read, Update, Delete) operations  
+- Display user-specific data (email and tasks)
 
+---
 
-When prompted, select:
+## 🧱 Main Features
+### 🔐 Authentication
+- Email and password registration and login  
+- Protected dashboard (only visible when logged in)  
+- Logout option  
 
-✅ TypeScript: Yes
+### 🏠 Dashboard
+- Shows greeting with user’s email  
+- Form to add a task (title, description, priority)  
+- Task list with edit, delete, and complete buttons  
 
-✅ ESLint: Yes
+---
 
-✅ Tailwind CSS: Yes
+## 🔧 Firestore Structure
+**Collection name:** `tasks`
 
-✅ App Router: Yes
+| Field | Type | Description |
+|-------|------|-------------|
+| id | string | Auto ID from Firestore |
+| title | string | Task title |
+| description | string | Task details |
+| completed | boolean | Marks if task is done |
+| priority | string | "Low" | "Medium" | "High" |
+| userEmail | string | Owner of the task |
 
-✅ Src Directory: Yes
+---
 
-✅ Import alias (@/): Yes
+## ⚙️ Setup Instructions
+1. Clone the project  
+   ```bash
+   git clone <your-repo-url>
+Go into the project folder
 
-Then navigate into the project folder:
-
+bash
+Copy code
 cd firebase-crud-task-app
+Install dependencies
 
-🔹 Step 2: Install Firebase
-npm install firebase
+bash
+Copy code
+npm install
+Add your Firebase config in a new file named firebase.ts
+(Get this from your Firebase project settings)
 
-🔹 Step 3: Start the development server
+Run the app
+
+bash
+Copy code
 npm run dev
-
-
-Open your browser at:
+Open the browser
 👉 http://localhost:3000
 
-📁 2. Folder Structure
+🧑‍💻 Test Account
+Use this test user to log in:
 
-Inside src/app, create the following structure:
+makefile
+Copy code
+Email: testuser@gmail.com
+Password: test1234
+🧰 Technologies Used
+Next.js
 
-src/
-└── app/
-    ├── (auth)/
-    │   ├── login/
-    │   │   └── page.tsx
-    │   ├── logout/
-    │   │   └── page.tsx
-    │   └── register/
-    │       └── page.tsx
-    │
-    ├── api/
-    │   └── tasks/
-    │       ├── route.ts
-    │       └── [id]/
-    │           └── route.ts
-    │
-    ├── lib/
-    │   └── firebase.ts
-    │
-    ├── globals.css
-    ├── layout.tsx
-    └── page.tsx
+TypeScript
 
-💡 Tip: Create folders in VS Code
+Firebase Authentication
 
-Right-click on the app folder → New Folder → name it (auth)
+Firestore Database
 
-Inside (auth), create folders: login, logout, register
+Tailwind CSS
 
-Add page.tsx inside each folder
+🌍 Live Demo
+👉 //https://vercel.com/uwasedjarias-projects/firebase-crud-task-app-9ubg
 
-Repeat for api/tasks and lib
-
-📝 3. Project Description
-
-Firebase CRUD Task App is a full-stack frontend project built with Next.js 13, TypeScript, and Tailwind CSS.
-
-Features:
-
-✅ User registration and login via Firebase Authentication
-
-✅ Protected routes (only logged-in users can access the dashboard)
-
-✅ Create, read, update, and delete tasks stored in Firestore
-
-✅ Personalized dashboard greeting for each user
-
-✅ Safe logout from any page
-
-This app demonstrates integration of authentication, database CRUD operations, and route protection using modern frontend practices.
-
-👤 Author
-
-Uwase Djaria – Frontend Developer
+👩‍💻 Author
+Uwase Djaria
+Frontend Developer | UI/UX Designer
+💜 Passionate about learning and building real-world projects.
